@@ -23,11 +23,36 @@
   <div class="jumbotron">
     <h1>Room Information</h1>
    
-   
   </div>
   <p>Room : ${messages}</p>
-  
+   
 </div>
+<form action="zorkcontroller" method="post">
+            <h1></h1>
+            <p>
+               
+                <input type="hidden" id="name" name="room" value="${messages.name}">
+          //      <span class="error">${messages.name}</span>
+              
+            </p>
+            <p>
+               
+                <input type="hidden" id="name" name="roomnum" value="${messages.roomnum}">
+          //      <span class="error">${messages.name}</span>
+              
+            </p>
+             <p>
+                <label for="direction">What direction do you choose? </label>
+                <input id="direction" name="direction" value="${param.direction}">
+    //            <span class="error">${messages.name}</span>
+            </p>
+            
+            
+            <p>
+                <input type="submit">
+                <span class="success">${messages.success}</span>
+            </p>
+        </form>
 
 </body>
 </html>

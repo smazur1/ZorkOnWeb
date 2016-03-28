@@ -1,6 +1,9 @@
 
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +28,13 @@ public class ZorkController extends HttpServlet {
 		// Postprocess request: gather and validate submitted data and display the result in the same JSP.
 
 		// Prepare messages.
-		//     Map<String, String> messages = new HashMap<String, String>();
-		//  	String messages = "";
-		//     request.setAttribute("messages", messages);
+		    HashMap<String, String> info = new HashMap<String, String>();
+		  	String messages = "";
+		     request.setAttribute("messages", messages);
 
 		// Get and validate name.
-		String roomID = request.getParameter("room");
-		int roomnum = Integer.parseInt(roomID);
+		String roomID = request.getParameter("roomnum");
+		int roomNum = Integer.parseInt(roomID);
 		String direction = request.getParameter("direction");
 		
 		//	        if (name == null || name.trim().isEmpty()) {
@@ -47,11 +50,21 @@ public class ZorkController extends HttpServlet {
 	
 		RoomDB  rdb = new RoomDB();
 		
-		Room r = rdb.getRoom(roomnum, direction);
-
 		
+	System.out.println("room " + roomNum + "  direction " + direction);
+	
+	
+	
+	
+		Room r = rdb.getRoom(roomNum, direction);
 
-		request.setAttribute("messages", r.getName());
+		System.out.println("getName" + r);
+	//	String newroomnum = r.getRoomnum();
+		info.put("roomnum", r.getRoomnum());
+		info.put("name", r.getName());
+		info.put("direction", r.getWherecango());
+
+		request.setAttribute("messages", info );
 
 		//      messages.put("success", String.format("Hello, your name is %s and your age is %s and your "
 		//      		+ "favorite color is %s!" , name, age, color));

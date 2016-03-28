@@ -11,8 +11,10 @@ public class Room {
 		
 		
 	}
-	public int getRoomnum() {
-		return roomnum;
+	public String getRoomnum() {
+		String newroomnum;
+		newroomnum = Integer.toString(roomnum);
+		return newroomnum;
 	}
 	public void setRoomnum(int roomnum) {
 		this.roomnum = roomnum;
