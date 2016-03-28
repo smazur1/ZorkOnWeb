@@ -1,0 +1,48 @@
+--------------------------------------------------------
+--  File created - Monday-March-28-2016   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ROOMITEM
+--------------------------------------------------------
+
+  CREATE TABLE "ORA1"."ROOMITEM" 
+   (	"ROOMNUM" NUMBER(*,0), 
+	"ROOMITEM" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into ORA1.ROOMITEM
+SET DEFINE OFF;
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (1,'dead scorpion');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (2,'phone');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (3,'spiders');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (4,'bats');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (5,'dust');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (5,'empty box');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (6,'3 walking skeletons');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (7,'treasure chest');
+Insert into ORA1.ROOMITEM (ROOMNUM,ROOMITEM) values (8,'piles of gold');
+--------------------------------------------------------
+--  DDL for Index PK_ROOMITEM
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ORA1"."PK_ROOMITEM" ON "ORA1"."ROOMITEM" ("ROOMNUM", "ROOMITEM") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table ROOMITEM
+--------------------------------------------------------
+
+  ALTER TABLE "ORA1"."ROOMITEM" ADD CONSTRAINT "PK_ROOMITEM" PRIMARY KEY ("ROOMNUM", "ROOMITEM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
